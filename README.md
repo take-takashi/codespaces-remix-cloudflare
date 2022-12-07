@@ -19,3 +19,12 @@ npx create-remix@latest
 cd my-remix-app/
 npm i @notionhq/client
 ```
+
+# secret(.env)
+
+- NOTION_API_API_TEST_AUTH
+- NOTION_API_API_TEST_DB
+
+# TODO
+
+- NOTION_API_API_TEST_AUTH -> NOTION_API_API_TEST_TOKEN

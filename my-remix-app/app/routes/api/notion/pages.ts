@@ -1,12 +1,40 @@
 import type { LoaderArgs } from "@remix-run/cloudflare";
+import { Client as NotionClient } from "@notionhq/client";
 
 export async function loader({ context }: LoaderArgs) {
-  return new Response(
-    JSON.stringify({ message: "hello world", testa: context.TEST_ENV }),
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  const notion = new NotionClient({
+    auth: context.NOTION_API_API_TEST_AUTH as string,
+  });
+  const databaseId: string = context.NOTION_API_API_TEST_DB as string;
+
+  const pages: string[] = await getPageIdFromDatabase(notion, databaseId);
+
+  return new Response(JSON.stringify(pages), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+/**
+ * データベースIDからDB内のページIDリストを返す。
+ *
+ * @param databaseId
+ * @returns ページのIDリスト
+ */
+async function getPageIdFromDatabase(
+  notion: NotionClient,
+  databaseId: string
+): Promise<string[]> {
+  const res = await notion.databases.query({
+    database_id: databaseId,
+  });
+
+  const pages: string[] = [];
+
+  res.results.map((result) => {
+    pages.push(result.id);
+  });
+
+  return pages;
 }
