@@ -1,7 +1,9 @@
 # codespaces-remix-cloudflare
-Cloudflare pagesにRemixをデプロイしてみる
+
+Cloudflare pages に Remix をデプロイしてみる
 
 ## setup remix
+
 ```
 npx create-remix@latest
 ? Where would you like to create your app? ./my-remix-app
@@ -9,4 +11,11 @@ npx create-remix@latest
 ? Where do you want to deploy? Choose Remix App Server if you're unsure; it's easy to change deployment targets. Cloudflare Pages
 ? TypeScript or JavaScript? TypeScript
 ? Do you want me to run `npm install`? Yes
+```
+
+## setup remix npm
+
+```
+cd my-remix-app/
+npm i @notionhq/client
 ```
