@@ -32,7 +32,7 @@ async function getPageIdFromDatabase(
 
   const pages: string[] = [];
 
-  res.results.map((result) => {
+  res.results.forEach((result) => {
     pages.push(result.id);
   });
 
