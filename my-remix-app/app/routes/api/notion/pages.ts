@@ -7,6 +7,8 @@ export async function loader({ context }: LoaderArgs) {
   });
   const databaseId: string = context.NOTION_API_API_TEST_DB as string;
 
+  console.log("param1", databaseId);
+
   const pages: string[] = await getPageIdFromDatabase(notion, databaseId);
 
   return new Response(JSON.stringify(pages), {
