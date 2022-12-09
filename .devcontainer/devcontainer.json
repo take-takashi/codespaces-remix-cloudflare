@@ -24,7 +24,7 @@
       "source.fixAll.eslint": true // ファイル保存時、ESLint による自動フォーマット
     }
   },
-  "postCreateCommand": ["npm ci"], // devcontainer作成時に実行されるコマンド
-  // "postAttachCommand": "echo hello", // codespaces接続時に実行されるコマンド
+  "postCreateCommand": "bash ./.devcontainer/init.bash", // devcontainer作成時に実行されるコマンド
+  // "postAttachCommand": "echo", // codespaces接続時に実行されるコマンド
   "features": {}
 }

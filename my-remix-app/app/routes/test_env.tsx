@@ -12,7 +12,11 @@ export const loader = async ({ context }: LoaderArgs) => {
 
 export async function loader({ context }: LoaderArgs) {
   return new Response(
-    JSON.stringify({ message: "hello world", testa: context.TEST_ENV }),
+    JSON.stringify({
+      message: "hello world",
+      testa: context.TEST_ENV,
+      envv: context.NOTION_API_API_TEST_TOKEN,
+    }),
     {
       headers: {
         "Content-Type": "application/json",
