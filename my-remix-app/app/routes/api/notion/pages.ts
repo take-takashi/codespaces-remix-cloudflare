@@ -3,7 +3,7 @@ import { Client as NotionClient } from "@notionhq/client";
 
 export async function loader({ context }: LoaderArgs) {
   const notion = new NotionClient({
-    auth: context.NOTION_API_API_TEST_AUTH as string,
+    auth: context.NOTION_API_API_TEST_TOKEN as string,
   });
   const databaseId: string = context.NOTION_API_API_TEST_DB as string;
 
