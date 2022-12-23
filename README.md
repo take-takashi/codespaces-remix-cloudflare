@@ -29,3 +29,7 @@ npm i @notionhq/client
 
 - NOTION_API_API_TEST_AUTH -> NOTION_API_API_TEST_TOKEN
 - codespaces 作成時に.env を自動生成したい(命名更新したい)
+
+# MEMO
+
+- Components では useLoaderData 使えない？

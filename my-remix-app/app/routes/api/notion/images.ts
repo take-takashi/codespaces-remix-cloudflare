@@ -1,5 +1,6 @@
 import type { LoaderArgs } from "@remix-run/cloudflare";
 import { Client as NotionClient } from "@notionhq/client";
+import { json } from "@remix-run/cloudflare";
 
 export async function loader({ context }: LoaderArgs) {
   const notion = new NotionClient({
@@ -19,11 +20,7 @@ export async function loader({ context }: LoaderArgs) {
     })
   );
 
-  return new Response(JSON.stringify(images), {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  return json(images);
 }
 
 /**
